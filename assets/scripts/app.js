@@ -1,5 +1,4 @@
 //Bookmark Button Active State
-
 const bookmark = document.querySelector('.bookmark');
 
 function bookmarkToggle() {
