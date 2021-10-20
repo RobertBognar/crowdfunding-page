@@ -162,7 +162,7 @@ input[type="number"] {
           }
         }
         &:not(:last-of-type) {
-          border-bottom: 1px solid rgb(246, 246, 246);;
+          border-bottom: 1px solid $borderSectionColor;
           @media only screen and (min-width: 500px) {
             border-bottom: unset;
           }
@@ -200,7 +200,7 @@ input[type="number"] {
 .section {
     background-color: $whiteColor;
     border-radius: 8px;
-    border: 1px solid rgb(246, 246, 246);
+    border: 1px solid $borderSectionColor;
     padding: 32px 23px 39px;
     width: 100%;
     max-width: 730px;
@@ -295,7 +295,7 @@ input[type="number"] {
     }
     &__slider {
       width: 100%;
-      background-color: rgb(244, 244, 244);
+      background-color: $colorSlider;
       border-radius: 16px;
       height: 12px;
       &-inner {
@@ -344,7 +344,7 @@ input[type="number"] {
 .modal {
     background-color: $whiteColor;
     border-radius: 8px;
-    border: 1px solid rgb(246, 246, 246);
+    border: 1px solid $borderSectionColor;
     padding: 32px 23px 39px;
     width: 87.5%;
     max-width: 730px;
@@ -388,7 +388,7 @@ input[type="number"] {
 .pledge {
     background-color: $whiteColor;
     border-radius: 8px;
-    border: 1px solid rgb(219, 219, 219);
+    border: 1px solid $colorPledgeBorder;
     width: 100%;
     &--unavailable {
       filter: opacity(0.45);
@@ -484,7 +484,7 @@ input[type="number"] {
     }
     &__form-container {
       visibility: hidden;
-      border-top: 1px solid rgb(219, 219, 219);
+      border-top: 1px solid $colorPledgeBorder;
       width: 100%;
       max-height: 0;
       overflow: hidden;
@@ -534,7 +534,7 @@ input[type="number"] {
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      border: 1px solid rgb(219, 219, 219);
+      border: 1px solid $colorPledgeBorder;
       transition: all 0.3s;
     }
     &__label {
@@ -553,7 +553,7 @@ input[type="number"] {
 //Number $ Inputs Selection Modal Form
 .amount {
     &__label {
-      border: 1px solid rgb(219, 219, 219);
+      border: 1px solid $colorPledgeBorder;
       border-radius: 40px;
       max-width: 105px;
       display: flex;
