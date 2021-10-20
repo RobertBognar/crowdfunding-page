@@ -40,5 +40,4 @@ function menuToggle() {
         buttonMenu.setAttribute('aria-expanded', 'true');
     }
 }
-
 buttonMenu.addEventListener('click', menuToggle);
