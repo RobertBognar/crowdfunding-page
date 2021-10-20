@@ -654,7 +654,7 @@ input[type="number"] {
   
       &:disabled {
         background-color: $paragraphGray;
-        cursor: $customCursor;
+        cursor: not-allowed;
       }
     }
   
@@ -776,7 +776,7 @@ input[type="number"] {
     }
     &--unavailable {
       filter: opacity(0.45);
-      cursor: $customCursor;
+      cursor: not-allowed;
     }
     &__header {
       display: grid;

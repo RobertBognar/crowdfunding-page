@@ -882,7 +882,7 @@ input[type="number"] {
 
 .btn--reward:disabled {
   background-color: #7A7A7A;
-  cursor: url("../images/pointer.png"), pointer;
+  cursor: not-allowed;
 }
 
 .btn--pledge, .btn--success {
@@ -1026,7 +1026,7 @@ input[type="number"] {
 .reward--unavailable {
   -webkit-filter: opacity(0.45);
           filter: opacity(0.45);
-  cursor: url("../images/pointer.png"), pointer;
+  cursor: not-allowed;
 }
 
 .reward__header {
