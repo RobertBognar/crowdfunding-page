@@ -132,17 +132,15 @@ input[type="number"] {
 
 .navigation__list {
   position: absolute;
-  top: 88px;
-  background-color: #FFFFFF;
+  top: 48px;
   border-radius: 8px;
-  color: #000000;
   font-weight: 500;
-  left: 24px;
+  left: 4px;
   right: 24px;
   font-size: 13px;
   overflow: hidden;
-  -webkit-transition: all 0.35s ease-out;
-  transition: all 0.35s ease-out;
+  -webkit-transition: all 0.55s ease-out;
+  transition: all 0.55s ease-out;
 }
 
 @media only screen and (min-width: 500px) {
@@ -173,9 +171,9 @@ input[type="number"] {
 }
 
 .navigation__list-item {
-  padding: 24px 24px 23px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  padding: 16px 10px 8px 20px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 @media only screen and (min-width: 500px) {
@@ -186,7 +184,9 @@ input[type="number"] {
 }
 
 .navigation__list-item:hover {
-  background-color: #147A73;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #7A7A7A;
+          text-decoration-color: #7A7A7A;
   color: #FFFFFF;
 }
 
@@ -195,10 +195,6 @@ input[type="number"] {
     color: unset;
     background-color: unset;
   }
-}
-
-.navigation__list-item:not(:last-of-type) {
-  border-bottom: 1px solid #f6f6f6;
 }
 
 @media only screen and (min-width: 500px) {

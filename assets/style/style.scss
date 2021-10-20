@@ -118,16 +118,14 @@ input[type="number"] {
 .navigation {
     &__list {
       position: absolute;
-      top: 88px;
-      background-color: $whiteColor;
+      top: 48px;  
       border-radius: 8px;
-      color: $blackColor;
       font-weight: $secondFont;
-      left: 24px;
+      left: 4px;
       right: 24px;
       font-size: $linkFontSize;
       overflow: hidden;
-      transition: all 0.35s ease-out;
+      transition: all 0.55s ease-out;
       @media only screen and (min-width: 500px) {
         position: relative;
         top: unset;
@@ -147,14 +145,15 @@ input[type="number"] {
         left: 138%;
       }
       &-item {
-        padding: 24px 24px 23px;
-        transition: all 0.3s;
+        padding: 16px 10px 8px 20px;
+        transition: all 0.3s ease;
         @media only screen and (min-width: 500px) {
           padding: 0;
           position: relative;
         }
         &:hover {
-          background-color: $buttonBlueHover;
+          text-decoration: underline;
+          text-decoration-color: $paragraphGray;
           color: $whiteColor;
           @media only screen and (min-width: 500px) {
             color: unset;
@@ -162,7 +161,6 @@ input[type="number"] {
           }
         }
         &:not(:last-of-type) {
-          border-bottom: 1px solid $borderSectionColor;
           @media only screen and (min-width: 500px) {
             border-bottom: unset;
           }
