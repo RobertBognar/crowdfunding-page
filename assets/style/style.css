@@ -908,11 +908,11 @@ input[type="number"] {
 }
 
 .bookmark:hover * circle {
-  fill: #7A7A7A;
+  fill: #707070;
 }
 
 .bookmark:hover * path {
-  fill: #FFFFFF;
+  fill: #B1B1B1;
 }
 
 @media only screen and (min-width: 525px) {
@@ -984,15 +984,7 @@ input[type="number"] {
   .bookmark--active {
     background-color: #979797;
   }
-  .bookmark--active .bookmark__icon {
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    -webkit-transform: translateX(134px);
-            transform: translateX(134px);
-  }
   .bookmark--active .bookmark__text {
-    -webkit-transform: translateX(-44px);
-            transform: translateX(-44px);
     color: #147A73;
   }
   .bookmark--active .bookmark__text--active {

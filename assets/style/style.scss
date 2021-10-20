@@ -685,11 +685,10 @@ input[type="number"] {
 .bookmark {
     &:hover {
       & * circle {
-        fill: $paragraphGray;
+        fill: #707070;
       }
-  
       & * path {
-        fill: $whiteColor;
+        fill: #B1B1B1;
       }
     }
     @media only screen and (min-width: 525px) {
@@ -745,11 +744,9 @@ input[type="number"] {
       @media only screen and (min-width: 525px) {
         background-color: $buttonBookmark;
         .bookmark__icon {
-          transition: all 0.5s ease;
-          transform: translateX(134px);
+          
         }
         .bookmark__text {
-          transform: translateX(-44px);
           color: $buttonBlueHover;
         }
         .bookmark__text--active {
