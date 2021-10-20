@@ -1,0 +1,890 @@
+@import 'variables';
+@import 'animations';
+
+* {
+    margin: 0;
+    padding: 0;  
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    background-color: $background;
+    font-family: $font;
+}
+//Global Attributes
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: $whiteColor;
+    &:hover {
+        text-decoration: underline;
+        text-decoration-color: rgb(160, 160, 160);
+    } 
+}
+
+button {
+    border: none;
+    outline-offset: 5px;
+    background-color: transparent;
+    cursor: $customCursor;
+    &:focus {
+        outline-offset: 4px;
+    }
+}
+
+// Number inputs number removal
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.display-none {
+  display: none;
+}
+//Header Container & Navigation
+.header {
+    position: relative;
+    &__hero {
+      position: relative;
+      & img {
+        width: 100%;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.5),
+          transparent 50%,
+          transparent
+        );
+        width: 100%;
+        height: 100%;
+      }
+    }
+}
+.masterhead {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 24px;
+    z-index: 10;
+    @media only screen and (min-width: 500px) {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1172px;
+    padding: 48px 32px;
+  }
+  @media only screen and (min-width: 1600px) {
+    left: 40.5%;
+    top: 4%;
+  }
+}
+.navigation {
+    &__list {
+      position: absolute;
+      top: 88px;
+      background-color: $whiteColor;
+      border-radius: 8px;
+      color: $blackColor;
+      font-weight: $secondFont;
+      left: 24px;
+      right: 24px;
+      font-size: $linkFontSize;
+      overflow: hidden;
+      transition: all 0.35s ease-out;
+      @media only screen and (min-width: 500px) {
+        position: relative;
+        top: unset;
+        left: unset;
+        right: unset;
+        background-color: unset;
+        border-radius: unset;
+        color: $whiteColor;
+        font-size: 13px;
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        grid-gap: 34px;
+        overflow: visible;
+      }
+      @media only screen and (min-width: 1600px) {
+        left: 138%;
+      }
+      &-item {
+        padding: 24px 24px 23px;
+        transition: all 0.3s;
+        @media only screen and (min-width: 500px) {
+          padding: 0;
+          position: relative;
+        }
+        &:hover {
+          background-color: $buttonBlueHover;
+          color: $whiteColor;
+          @media only screen and (min-width: 500px) {
+            color: unset;
+            background-color: unset;
+          }
+        }
+        &:not(:last-of-type) {
+          border-bottom: 1px solid rgb(246, 246, 246);;
+          @media only screen and (min-width: 500px) {
+            border-bottom: unset;
+          }
+        }
+      }
+      &--hidden {
+        scale: 0.85;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.25s ease-out;
+        @media only screen and (min-width: 500px) {
+          opacity: 1;
+          scale: 1;
+          visibility: visible;
+          transition: unset;
+        }
+      }
+    }
+}
+.disable-scroll {
+    overflow-y: hidden;
+}
+//Main Container & States
+.main {
+    padding: 0 24px 80px;
+    margin-top: -60px;
+    position: relative;
+    display: grid;
+    justify-content: center;
+    grid-gap: 24px;
+    @media only screen and (min-width: 1400px) {
+      margin-top: -96px;
+    }
+}
+.section {
+    background-color: $whiteColor;
+    border-radius: 8px;
+    border: 1px solid rgb(246, 246, 246);
+    padding: 32px 23px 39px;
+    width: 100%;
+    max-width: 730px;
+    @media only screen and (min-width: 700px) {
+      padding: 48px;
+    }
+}
+//Main Intro Container 
+.intro {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    grid-gap: 24px;
+    position: relative;
+    @media only screen and (min-width: 700px) {
+      grid-gap: 35px;
+    }
+    &__logo {
+      position: absolute;
+      top: -28px;
+    }
+    &__text {
+      display: grid;
+      grid-gap: 16px;
+      padding-top: 20px;
+      @media only screen and (min-width: 700px) {
+        grid-gap: 12px;
+        padding-top: 8px;
+      }
+    }
+    &__btns {
+      display: grid;
+      align-items: center;
+      grid-auto-flow: column;
+      width: 100%;
+      grid-template-columns: 1fr auto;
+      grid-gap: 4px;
+    }
+}
+// Statistics Container
+.statistics {
+    text-align: center;
+    display: grid;
+    grid-gap: 28px;
+    @media only screen and (min-width: 600px) {
+      text-align: left;
+      grid-gap: 32px;
+    }
+    &-groups-wrapper {
+      display: grid;
+      justify-content: center;
+      align-items: start;
+      grid-gap: 46px;
+      @media only screen and (min-width: 600px) {
+        justify-content: start;
+        grid-auto-flow: column;
+        grid-gap: 42px;
+      }
+    }
+    &__group {
+      display: grid;
+      grid-gap: 5px;
+      position: relative;
+      @media only screen and (min-width: 600px) {
+        grid-gap: 3px;
+        &:not(:first-of-type) {
+          padding-left: 48px;
+        }
+        &--central {
+          padding-right: 50px;
+        }
+      }
+      //Splitting Lines Between
+      &:not(:first-of-type)::before {
+        content: "";
+        position: absolute;
+        height: 1px;
+        top: -26px;
+        background-color: rgba($blackColor, 0.7);
+        opacity: 0.15;
+        width: 63%;
+        left: 50%;
+        transform: translateX(-50%);
+        @media only screen and (min-width: 600px) {
+          height: 88%;
+          width: 1px;
+          top: 0;
+          left: unset;
+          transform: unset;
+        }
+      }
+    }
+    &__slider {
+      width: 100%;
+      background-color: rgb(244, 244, 244);
+      border-radius: 16px;
+      height: 12px;
+      &-inner {
+        width: 79%;
+        background-color: $buttonBlue;
+        border-radius: 16px;
+        height: 100%;
+        max-width: 100%;
+      }
+    }
+    .paragraph {
+      padding-top: 2px;
+    }
+}
+// About Project & Pledge Info
+.about {
+    display: grid;
+    grid-gap: 34px;
+    @media only screen and (min-width: 700px) {
+      grid-gap: 45px;
+    }
+    &__text {
+      padding-top: 7px;
+      display: grid;
+      grid-gap: 26px;
+      @media only screen and (min-width: 700px) {
+        padding-top: 0;
+        grid-gap: 34px;
+      }
+    }
+    &__rewards {
+      display: grid;
+      grid-gap: 24px;
+    }
+}
+//Selection, Success Modal Start Container
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 100;
+}
+.modal {
+    background-color: $whiteColor;
+    border-radius: 8px;
+    border: 1px solid rgb(246, 246, 246);
+    padding: 32px 23px 39px;
+    width: 87.5%;
+    max-width: 730px;
+    margin: 120px auto;
+    display: grid;
+    grid-gap: 24px;
+    position: relative;
+    z-index: 100;
+    @media only screen and (min-width: 700px) {
+      padding: 48px;
+      margin: 144px auto;
+    }
+    &__header {
+      display: grid;
+      grid-auto-flow: column;
+      justify-content: space-between;
+    }
+    &__pledge-selection {
+      display: grid;
+      grid-gap: 22px;
+    }
+    &--success {
+      position: fixed;
+      justify-items: center;
+      text-align: center;
+      max-width: 540px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: unset;
+      @media only screen and (min-width: 700px) {
+        & img {
+          width: 88px;
+          height: auto;
+          margin-bottom: 24px;
+        }
+      }
+    }
+}
+//Pledges In Selection Modal
+.pledge {
+    background-color: $whiteColor;
+    border-radius: 8px;
+    border: 1px solid rgb(219, 219, 219);
+    width: 100%;
+    &--unavailable {
+      filter: opacity(0.45);
+      cursor: $customCursor;
+      & .heading--modal:hover {
+        color: $blackColor;
+      }
+    }
+    &:focus-within,
+    &--selected {
+      border: 2px solid $buttonBlue;
+      & * .radio__control {
+        background: radial-gradient($buttonBlue 40%, transparent 41%);
+      }
+      & > .pledge__form-container {
+        visibility: visible;
+        max-height: 208px;
+        transition: max-height 0.7s ease;
+        @media only screen and (min-width: 375px) {
+          max-height: 152px;
+        }
+        @media only screen and (min-width: 600px) {
+          max-height: 112px;
+        }
+      }
+    }
+    &__main-container {
+      width: 100%;
+      padding: 24px;
+      display: grid;
+      grid-gap: 22px;
+      &--noreward {
+        grid-gap: 12px;
+      }
+  
+      @media only screen and (min-width: 700px) {
+        padding: 32px 24px;
+        grid-template-areas:
+          "header number"
+          "desc desc";
+        grid-template-columns: 1fr auto;
+        grid-gap: 12px;
+      }
+    }
+    &__header {
+      display: grid;
+      justify-content: start;
+      grid-auto-flow: column;
+      grid-gap: 16px;
+      align-items: center;
+      @media only screen and (min-width: 700px) {
+        grid-area: header;
+        grid-gap: 24px;
+      }
+      &-text {
+        display: grid;
+        grid-gap: 4px;
+        @media only screen and (min-width: 700px) {
+          grid-auto-flow: column;
+          grid-gap: 18px;
+          align-items: center;
+        }
+      }
+    }
+    &__description {
+      @media only screen and (min-width: 700px) {
+        grid-area: desc;
+        margin-left: 48px;
+      }
+    }
+    &__footer {
+      display: grid;
+      justify-content: start;
+      grid-gap: 24px;
+      @media only screen and (min-width: 600px) {
+        grid-auto-flow: column;
+        justify-content: space-between;
+      }
+      @media only screen and (min-width: 700px) {
+        grid-area: number;
+        justify-self: end;
+      }
+      &-text {
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        justify-content: start;
+        grid-gap: 9px;
+        @media only screen and (min-width: 700px) {
+          align-items: start;
+        }
+      }
+    }
+    &__form-container {
+      visibility: hidden;
+      border-top: 1px solid rgb(219, 219, 219);
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    &__form {
+      padding: 24px 23px;
+      display: grid;
+      text-align: center;
+      grid-gap: 18px;
+      @media only screen and (min-width: 600px) {
+        grid-auto-flow: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      &-inputs {
+        display: grid;
+        grid-gap: 16px;
+        justify-content: center;
+        justify-items: center;
+        @media only screen and (min-width: 374px) {
+          grid-auto-flow: column;
+          grid-gap: 16px;
+        }
+      }
+    }
+}
+//Radio Buttons For Modal Pledges
+.radio {
+    display: flex;
+    &__input {
+      opacity: 0;
+      height: 0;
+      width: 0;
+      position: absolute;
+      &:focus {
+        & ~ .pledge__header-text > .heading {
+          color: $buttonBlue;
+        }
+  
+        & + .radio__control {
+          border: 1px solid $buttonBlue;
+        }
+      }
+    }
+    &__control {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid rgb(219, 219, 219);
+      transition: all 0.3s;
+    }
+    &__label {
+      cursor: $customCursor;
+      position: relative;
+      &:hover {
+        & * .heading {
+          color: $buttonBlue;
+        }
+        & > .radio__control {
+          border: 1px solid $buttonBlue;
+        }
+      }
+    }
+}
+//Number $ Inputs Selection Modal Form
+.amount {
+    &__label {
+      border: 1px solid rgb(219, 219, 219);
+      border-radius: 40px;
+      max-width: 105px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 48.5px;
+      transition: all 0.3s;
+      &:focus-within {
+        border: 1px solid $buttonBlue;
+      }
+      & span {
+        font-weight: $thirdFont;
+        font-size: 14px;
+        opacity: 0.5;
+      }
+    }
+    &__input {
+      font-family: inherit;
+      font-weight: $thirdFont;
+      border: none;
+      width: 50%;
+      max-width: 105px;
+      caret-color: $buttonBlue;
+      text-align: left;
+      font-size: 14px;
+      padding-left: 12px;
+      &:focus {
+        outline: none;
+      }
+    }
+}
+//Overlay Container
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba($blackColor, 0.5), transparent);
+    z-index: 10;
+    transition: all 0.3s;
+    visibility: visible;
+  
+    &--hidden {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+  
+    &--modal {
+      transition: all 0.6s ease;
+      z-index: 50;
+      background-image: linear-gradient(
+        rgba($blackColor, 0.5),
+        rgba($blackColor, 0.5)
+      );
+    }
+}
+//Buttons Container
+.btn {
+    color: $whiteColor;
+    font-family: inherit;
+    font-weight: $thirdFont;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+    &--menu {
+      @media only screen and (min-width: 500px) {
+        display: none;
+      }
+    }
+    &--teal {
+      background-color: $buttonBlue;
+      &:hover {
+        background-color: $buttonBlueHover;
+      }
+    }
+  
+    &--primary {
+      font-size: 15px;
+      padding: 18px 20px;
+      max-width: 214px;
+  
+      @media only screen and (min-width: 600px) {
+        padding: 18.5px 20px;
+        max-width: 202px;
+      }
+    }
+  
+    &--reward {
+      font-size: 13px;
+      padding: 16px 0;
+      width: 158px;
+  
+      &:disabled {
+        background-color: $paragraphGray;
+        cursor: $customCursor;
+      }
+    }
+  
+    &--pledge,
+    &--success {
+      font-size: 13px;
+      padding: 16px 33px;
+    }
+  
+    &--success {
+      margin-top: 8px;
+    }
+  
+    &--modal-form {
+      font-size: 13px;
+      padding: 16px 28px;
+    }
+  
+    &--close-modal {
+      @media only screen and (min-width: 700px) {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+      }
+    }
+}
+//Bookmark Button Container
+.bookmark {
+    &:hover {
+      & * circle {
+        fill: $paragraphGray;
+      }
+  
+      & * path {
+        fill: $whiteColor;
+      }
+    }
+    @media only screen and (min-width: 525px) {
+      border-radius: 40px;
+      background-color: #e0e0e0;
+      color: $paragraphGray;
+      display: grid;
+      grid-auto-flow: column;
+      justify-content: space-between;
+      min-width: 172px;
+      grid-gap: 16px;
+      letter-spacing: 0.5px;
+    }
+    &__icon {
+      transition: all 0.5s ease;
+      position: relative;
+      z-index: 1;
+      & * circle,
+      & * path {
+        transition: all 0.3s;
+      }
+    }
+    &__text {
+      display: none;
+      @media only screen and (min-width: 525px) {
+        display: inline;
+        font-size: 15px;
+        transition: all 0.5s ease;
+        position: relative;
+        z-index: 0;
+        &--active {
+          color: $buttonBlueHover;
+          visibility: hidden;
+          opacity: 0;
+          padding-right: 8px;
+          transition: all 0.35s ease;
+        }
+      }
+    }
+    &--active {
+      & * circle {
+        fill: $buttonBlueHover;
+      }
+      & * path {
+        fill: $whiteColor;
+      }
+      &:hover,
+      &:focus {
+        & * circle {
+          fill: $buttonBlue;
+        }
+      }
+      @media only screen and (min-width: 525px) {
+        background-color: $buttonBookmark;
+        .bookmark__icon {
+          transition: all 0.5s ease;
+          transform: translateX(134px);
+        }
+        .bookmark__text {
+          transform: translateX(-44px);
+          color: $buttonBlueHover;
+        }
+        .bookmark__text--active {
+          padding-right: 26px;
+          visibility: visible;
+          opacity: 1;
+          transition: all 0.5s ease;
+          transition-delay: 0.1s;
+        }
+      }
+    }
+}
+//Reward Container About Section
+.reward {
+    background-color: $whiteColor;
+    border-radius: 8px;
+    border: 1px solid rgb(219, 219, 219);
+    padding: 23px 22px;
+    width: 100%;
+    display: grid;
+    grid-gap: 23px;
+    @media only screen and (min-width: 700px) {
+      padding: 36px 30px 30px;
+    }
+    &--unavailable {
+      filter: opacity(0.45);
+      cursor: $customCursor;
+    }
+    &__header {
+      display: grid;
+      grid-gap: 4px;
+      @media only screen and (min-width: 525px) {
+        grid-auto-flow: column;
+        justify-content: space-between;
+      }
+    }
+    &__footer {
+      display: grid;
+      justify-content: start;
+      grid-gap: 24px;
+      @media only screen and (min-width: 525px) {
+        grid-auto-flow: column;
+        justify-content: space-between;
+      }
+      &-text {
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        justify-content: start;
+        grid-gap: 9px;
+      }
+    }
+}
+
+//Separated Typography
+.heading {
+    color: $blackColor;
+    font-weight: $thirdFont;
+    line-height: 1.2;
+    transition: color 0.3s;
+    &--primary {
+      font-size: $aboutFontSize;
+      padding: 0 16px;
+      @media only screen and (min-width: 700px) {
+        font-size: 28px;
+      }
+    }
+    &--secondary,
+    &--modal {
+      font-size: $aboutFontSizeMobile;
+    }
+    &--secondary {
+      font-size: $aboutFontSizeMobile;
+      @media only screen and (min-width: 700px) {
+        font-size: $aboutFontSize;
+      }
+    }
+    &--modal {
+      @media only screen and (min-width: 700px) {
+        font-size: 24px;
+      }
+    }
+    &--tertiary {
+      font-size: $standFontSizeMobile;
+      @media only screen and (min-width: 700px) {
+        font-size: $standFontSize;
+      }
+    }
+    &--pledge {
+      font-size: 14px;
+      @media only screen and (min-width: 700px) {
+        font-size: 16px;
+      }
+    }
+}
+.paragraph {
+    font-size: 14px;
+    color: $paragraphGray;
+    line-height: 24px;
+    font-weight: $firstFont;
+    @media only screen and (min-width: 700px) {
+      font-size: $buttonParagraphFontSize;
+      color: $paragraphGray;
+      line-height: 18px;
+      &--primary,
+      &--about {
+        font-size: 16px;
+        line-height: 30px;
+        color: $paragraphGray;
+        word-spacing: 0.1px;
+      }
+      &--about,
+      &--modal {
+        font-size: $paragraphFontSize;
+        line-height: 30px;
+      }
+    }
+    &--pledge-requirement {
+      color: $buttonBlue;
+      font-weight: $secondFont;
+      @media only screen and (min-width: 700px) {
+        line-height: unset;
+        font-size: 16px;
+      }
+    }
+    &--requirement {
+      color: $buttonBlue;
+    }
+}
+.number {
+    color: $blackColor;
+    font-weight: $thirdFont;
+    font-size: 32px;
+    &--modal {
+      font-size: 18px;
+    }
+  }
+
