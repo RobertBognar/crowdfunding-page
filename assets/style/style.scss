@@ -1,5 +1,5 @@
 @import 'variables';
-@import 'animations';
+
 
 * {
     margin: 0;
@@ -118,10 +118,10 @@ input[type="number"] {
 .navigation {
     &__list {
       position: absolute;
-      top: 48px;  
+      top: 128px;  
       border-radius: 8px;
       font-weight: $secondFont;
-      left: 4px;
+      left: 24px;
       right: 24px;
       font-size: $linkFontSize;
       overflow: hidden;
@@ -150,6 +150,20 @@ input[type="number"] {
         @media only screen and (min-width: 500px) {
           padding: 0;
           position: relative;
+        }
+        @media only screen and (max-width: 375px) {
+          background-color: $whiteColor;
+          max-width: 327px;
+          border: 1px solid rgba(0, 0, 0, 0.0497193);
+          padding: 20px;
+          a {
+            color: $blackColor;
+            font-weight: $thirdFont;
+            &:hover {
+              text-decoration: underline;
+              text-decoration-color: $paragraphGray;
+            }
+          }
         }
         &:hover {
           text-decoration: underline;
@@ -508,6 +522,9 @@ input[type="number"] {
           grid-gap: 16px;
         }
       }
+    }
+    #mahoganycursor {
+      cursor: not-allowed;
     }
 }
 //Radio Buttons For Modal Pledges

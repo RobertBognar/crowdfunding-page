@@ -82,4 +82,8 @@ escapeX();
 escapeExit();
 escapeBlankClick();
 
-// Submitting a Pledge
+function successModal() {
+    document.activeElement.blur();
+    modalSelection.classList.add("hidden");
+    modalSuccess.classList.remove("hidden");
+}
