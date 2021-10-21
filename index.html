@@ -19,7 +19,7 @@
     <!--Header Container-->
     <header class="header">
         <div class="masterhead">
-            <a href="#" class="masterhead__logo" >
+            <a href="#" class="masterhead__logo">
                 <img src="./assets/images/logo.svg" alt="Crowdfund - Home" />
             </a>
             <nav class="navigation">
@@ -228,7 +228,7 @@
                                 <label for="amount-noreward" class="amount__label">
                                     <span>$</span>
                                     <input class="amount__input" type="number" name="pledge-noreward"
-                                        id="amount-noreward" min="1" value="10" required />
+                                        id="amount-noreward" min="0" value="0" required />
                                 </label>
                                 <button type="submit" id="submit-noreward" class="btn btn--modal-form btn--teal"
                                     aria-label="submit pledge amount no reward">
@@ -393,7 +393,8 @@
         </div>
     </div>
     <script src="./assets/scripts/app.js"></script>
-    <script src="./assets/scripts/modals.js"></script>
+    <script src="./assets/scripts/keyevents.js"></script>
+    <script src="./assets/scripts/modal.js"></script>
 </body>
 
 </html>
