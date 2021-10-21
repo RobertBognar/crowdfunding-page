@@ -130,6 +130,14 @@ input[type="number"] {
   }
 }
 
+.masterhead a {
+  cursor: url("../images/pointer.png"), pointer;
+}
+
+.masterhead #masterlogo {
+  cursor: url("../images/pointer.png"), pointer;
+}
+
 .navigation__list {
   position: absolute;
   top: 128px;

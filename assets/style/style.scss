@@ -114,6 +114,12 @@ input[type="number"] {
     left: 40.5%;
     top: 4%;
   }
+  a {
+    cursor: $customCursor;
+  }
+  #masterlogo {
+    cursor: $customCursor;
+  }
 }
 .navigation {
     &__list {
