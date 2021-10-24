@@ -84,6 +84,6 @@ escapeBlankClick();
 
 function successModal() {
     document.activeElement.blur();
-    modalSelection.classList.add("hidden");
-    modalSuccess.classList.remove("hidden");
+    modalSelection.classList.add('hidden');
+    modalSuccess.classList.remove('hidden');
 }

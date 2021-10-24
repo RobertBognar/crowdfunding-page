@@ -1,15 +1,15 @@
 //Updating Pledges
 
 pledgeForms.forEach((form) => {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        if (form.dataset.group != "noreward") {
+        if (form.dataset.group != 'noreward') {
             updateRemains(form);
         }
 
         totalBackers++;
-        document.getElementById("num-backers").innerHTML = totalBackers.toLocaleString();
+        document.getElementById('num-backers').innerHTML = totalBackers.toLocaleString();
 
         totalBackedUpdated(form);
         successModal();
@@ -41,12 +41,12 @@ function totalBackedUpdated(form) {
     totalBacked += amountPledged;
 
     document.getElementById(
-        "total-backed"
+        'total-backed'
     ).innerHTML = `$${totalBacked.toLocaleString()}`;
 
     const percentageBacked = Math.floor((totalBacked / amountGoal) * 100);
 
     document.querySelector(
-        ".statistics__slider-inner"
+        '.statistics__slider-inner'
     ).style.width = `${percentageBacked}%`;
 }

@@ -31,7 +31,7 @@ a {
     color: $whiteColor;
     &:hover {
         text-decoration: underline;
-        text-decoration-color: rgb(160, 160, 160);
+        text-decoration-color: $underlineColor;
     }
 }
 
@@ -84,7 +84,7 @@ input[type="number"] {
         left: 0;
         background-image: linear-gradient(
           to bottom,
-          rgba(0, 0, 0, 0.5),
+          $linearGradientBackground,
           transparent 50%,
           transparent
         );
@@ -160,7 +160,7 @@ input[type="number"] {
         @media only screen and (max-width: 375px) {
           background-color: $whiteColor;
           max-width: 327px;
-          border: 1px solid rgba(0, 0, 0, 0.0497193);
+          border: 1px solid $borderColor;
           padding: 20px;
           a {
             color: $blackColor;
@@ -784,7 +784,7 @@ input[type="number"] {
 .reward {
     background-color: $whiteColor;
     border-radius: 8px;
-    border: 1px solid rgb(219, 219, 219);
+    border: 1px solid $colorPledgeBorder;
     padding: 23px 22px;
     width: 100%;
     display: grid;
